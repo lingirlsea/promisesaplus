@@ -53,7 +53,7 @@ promise.then(onFulfilled, onRejected)
 - 2.2.1.1 如果 `onFulfilled` 不是函数，它必须被忽略。
 - 2.2.1.2 如果 `onRejected` 不是函数，它必须被忽略。
 
-2.2.2 如果 `onFulfilled` 是函数:
+2.2.2 如果 `onFulfilled` 是函数：
 - 2.2.2.1 当 promise 处于已处理状态时，该函数必须被调用并将 promise 的值作为第一个参数。
 - 2.2.2.2 该函数一定不能在 promise 处于已处理状态之前调用。
 - 2.2.2.3 该函数被调用次数不超过一次。

@@ -140,9 +140,8 @@ promise2 = promise1.then(onFulfilled, onRejected);
 
 - 3.6 实现 *不* 应该对 thenable 调用链的深度设置任意限制，并假设超出该限制，递归将是无限的。只有真正的循环才应该导致 `TypeError`；如果一个无限循环链上的 thenable 具有明显不同，那么永远递归下去就是正确的行为。
 
-
-
-
+<br>
+<br>
 参考资料：
 
 [Promises/A+ 英文版](https://promisesaplus.com/)
@@ -156,8 +155,9 @@ promise2 = promise1.then(onFulfilled, onRejected);
 
 
 
-
-
+<br>
+<br>
+<br>
 
 **An open standard for sound, interoperable JavaScript promises—by implementers, for implementers.**  
 

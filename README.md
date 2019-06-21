@@ -153,9 +153,9 @@ promise2 = promise1.then(onFulfilled, onRejected);
 [You-Dont-Know-JS 中关于Promise的详细解读](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md)
 
 
-
-
 <br>
+<br>
+---
 <br>
 <br>
 

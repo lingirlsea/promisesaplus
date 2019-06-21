@@ -157,7 +157,9 @@ promise2 = promise1.then(onFulfilled, onRejected);
 
 <br>
 <br>
+
 ---
+
 <br>
 <br>
 

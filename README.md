@@ -144,7 +144,9 @@ promise2 = promise1.then(onFulfilled, onRejected);
 
 <br>
 <br>
-参考资料：
+
+**参考资料：**
+<br>
 <br>
 
 [【翻译】Promises/A+ 规范](http://www.ituring.com.cn/article/66566)

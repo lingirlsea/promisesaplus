@@ -10,7 +10,8 @@
 
 最后，核心 Promises/A+ 规范没有涉及如何创建，执行或拒绝 promises，而是选择专注于提供可操作的 `then` 方法。 后期的配套规范中可能涉及这些主题。
 
-## 1、术语
+
+### 1、术语
 1.1 “promise” 是具有 `then` 方法的对象或函数，其行为符合此规范。
 
 1.2 “thenable” 是定义 `then` 方法的对象或函数。
@@ -21,8 +22,9 @@
 
 1.5 “reason” 是一个值，用来表明 promise 被拒绝的原因。
 
-## 2. 要求
-### 2.1 Promise 状态
+
+### 2. 要求
+#### 2.1 Promise 状态
 一个 promise 必须是以下三种状态之一: 待处理, 已处理, 或已拒绝。
 
 2.1.1 当 promise 处于待处理状态时：
@@ -39,7 +41,7 @@
 这里, “不可改变” 意味者恒等 (即通过 === 判断), 而不是意味者更深层次的不可变。
 > *译者注：深层次的不可变应该是针对非基本类型值，只考虑引用地址相同*
 
-### 2.2 `then` 方法
+#### 2.2 `then` 方法
 promise 必须提供一个 `then` 方法来访问其当前值，或最终值，或被拒绝的理由。
 
 promise 的 `then` 方法接受两个参数：
@@ -85,7 +87,7 @@ promise2 = promise1.then(onFulfilled, onRejected);
 
 
 
-### 2.3 Promise 解决步骤
+#### 2.3 Promise 解决步骤
 
 `promise 解决步骤` 是一个抽象操作，它将 promise 和 value 作为输入，我们将其表示为 `[[Resolve]](promise, x)`。如果 `x` 具有 thenable 特性，我们就假设 `x` 的行为至少有点像 promise，它将试图使 promise 接收 `x` 的状态。否则，它使用值 `x` 执行 `promise`。
 
@@ -126,7 +128,7 @@ promise2 = promise1.then(onFulfilled, onRejected);
 如果 promise 被一个 thenable 解决，且该 thenable 参与一个 thenable 循环链，那么 `[[Resolve]](promise, thenable)` 的递归性质最终导致 `[[Resolve]](promise, thenable)` 被再次调用，上述算法将导致无限递归。鼓励实现此类递归检测，并以一个 `TypeError` 类型的值作为原因拒绝 `promise`，但此类检测不是必须的。<sup>注3.6</sup>
 
 
-## 3、注释
+### 3、注释
 
 - 3.1 这里的“平台代码”意味着引擎，环境和 promise 实现代码。实际上，这个要求确保了 `onFulfilled` 和 `onRejected` 的异步执行，在事件循环结束后用新的堆栈调用 `then`。这可以使用诸如 `setTimeout` 或 `setImmediate` 之类的“宏任务”机制，或者使用诸如 `MutationObserver` 或 `process.nextTick` 之类的“微任务”机制来实现。由于 promise 实现被认为是平台代码，因此它本身可能包含一个任务调度队列或 “trampoline”，在任务调度队列或 “trampoline” 中，处理程序被调用。
 
@@ -169,7 +171,7 @@ Historically, Promises/A+ clarifies the behavioral clauses of the earlier Promis
 
 Finally, the core Promises/A+ specification does not deal with how to create, fulfill, or reject promises, choosing instead to focus on providing an interoperable `then` method. Future work in companion specifications may touch on these subjects.
 
-## 1. Terminology
+### 1. Terminology
 1.1 “promise” is an object or function with a `then` method whose behavior conforms to this specification.  
 
 1.2 “thenable” is an object or function that defines a `then` method.
@@ -180,9 +182,9 @@ Finally, the core Promises/A+ specification does not deal with how to create, fu
 
 1.5 “reason” is a value that indicates why a promise was rejected.
 
-## 2. Requirements
+### 2. Requirements
 
-### 2.1 Promise States
+#### 2.1 Promise States
 A promise must be in one of three states: pending, fulfilled, or rejected.
 
 2.1.1 When pending, a promise:  
@@ -200,7 +202,7 @@ A promise must be in one of three states: pending, fulfilled, or rejected.
 
 Here, “must not change” means immutable identity (i.e. ===), but does not imply deep immutability.
 
-### 2.2 The `then` Method
+#### 2.2 The `then` Method
 A promise must provide a `then` method to access its current or eventual value or reason.  
 
 A promise’s `then` method accepts two arguments:
@@ -250,7 +252,7 @@ promise2 = promise1.then(onFulfilled, onRejected);
 - 2.2.7.4 If `onRejected` is not a function and `promise1` is rejected, `promise2` must be rejected with the same reason as `promise1`.
 
 
-### 2.3 The Promise Resolution Procedure
+#### 2.3 The Promise Resolution Procedure
 
 The `promise resolution procedure` is an abstract operation taking as input a promise and a value, which we denote as `[[Resolve]](promise, x)`. If `x` is a thenable, it attempts to make promise adopt the state of `x`, under the assumption that `x` behaves at least somewhat like a promise. Otherwise, it fulfills `promise` with the value `x`.
 
@@ -293,7 +295,7 @@ To run `[[Resolve]](promise, x)`, perform the following steps:
 
 If a promise is resolved with a thenable that participates in a circular thenable chain, such that the recursive nature of `[[Resolve]](promise, thenable)` eventually causes `[[Resolve]](promise, thenable)` to be called again, following the above algorithm will lead to infinite recursion. Implementations are encouraged, but not required, to detect such recursion and reject `promise` with an informative `TypeError` as the reason. [3.6]
 
-## 3. Notes
+### 3. Notes
 
 - 3.1 Here “platform code” means engine, environment, and promise implementation code. In practice, this requirement ensures that `onFulfilled` and `onRejected` execute asynchronously, after the event loop turn in which `then` is called, and with a fresh stack. This can be implemented with either a “macro-task” mechanism such as `setTimeout` or `setImmediate`, or with a “micro-task” mechanism such as `MutationObserver` or `process.nextTick`. Since the promise implementation is considered platform code, it may itself contain a task-scheduling queue or “trampoline” in which the handlers are called.
 

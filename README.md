@@ -145,9 +145,7 @@ promise2 = promise1.then(onFulfilled, onRejected);
 <br>
 <br>
 参考资料：
-
-[Promises/A+ 英文版](https://promisesaplus.com/)
-
+<br>
 [【翻译】Promises/A+ 规范](http://www.ituring.com.cn/article/66566)
 
 [“macro-task” 与 “micro-task” 在 stackoverflow 上的相关解读](https://stackoverflow.com/questions/25915634/difference-between-microtask-and-macrotask-within-an-event-loop-context)

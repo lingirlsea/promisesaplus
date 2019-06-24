@@ -114,7 +114,7 @@ promise2 = promise1.then(onFulfilled, onRejected);
 
 	- 2.3.3.2 如果在获取属性 `x.then` 的过程中导致抛出异常 `e`，则拒绝 `promise` 并用 `e` 作为拒绝原因。
 
-	- 2.3.3.3 如果 `then` 是函数，则用 `x` 作为 `this`，`resolvePromise` 作为第一个参数，`rejectPromise` 作为第二个参数，调用该函数，其中：
+	- 2.3.3.3 如果 `then` 是函数，则用 `x` 作为 `this` 调用该函数，并将 `resolvePromise` 作为函数第一个参数，`rejectPromise` 作为函数第二个参数，其中：
 		- 2.3.3.3.1 如果/当使用值 `y` 调用 `resolvePromise` 时，运行 `[[Resolve]](promise, y)`。
 
 		- 2.3.3.3.2 如果/当使用 `r` 作为原因调用 `rejectPromise` 时，用 `r` 拒绝 `promise`。
@@ -146,6 +146,16 @@ promise2 = promise1.then(onFulfilled, onRejected);
 - 3.5 这个步骤首先存储对 `x.then` 的引用，然后测试该引用，然后调用该引用，避免多次访问 `x.then` 属性。在面对属性访问器时，这些预防措施对于确保一致性非常重要，，因为属性访问器的值可能会在两次检索之间发生变化。
 
 - 3.6 实现 *不* 应该对 thenable 调用链的深度设置任意限制，并假设超出该限制，递归将是无限的。只有真正的循环才应该导致 `TypeError`；如果一个无限循环链上的 thenable 具有明显不同，那么永远递归下去就是正确的行为。
+
+<br>
+<br>
+
+**感谢小伙伴们的支持：**
+<br>
+<br>
+[【angel-sasigi】](https://github.com/angel-sasigi)
+[【PareSky】](https://github.com/PareSky)
+[【Rita-thinker】](https://github.com/Rita-thinker)
 
 <br>
 <br>

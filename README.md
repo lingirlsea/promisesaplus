@@ -153,8 +153,8 @@ promise2 = promise1.then(onFulfilled, onRejected);
 **感谢小伙伴们的支持：**
 <br>
 <br>
-[angel-sasigi](https://github.com/angel-sasigi)
-[PareSky](https://github.com/PareSky)
+[angel-sasigi](https://github.com/angel-sasigi)、
+[PareSky](https://github.com/PareSky)、
 [Rita-thinker](https://github.com/Rita-thinker)
 
 <br>

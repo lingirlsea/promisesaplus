@@ -105,7 +105,7 @@ promise2 = promise1.then(onFulfilled, onRejected);
 - 2.3.2 如果 `x` 是一个 promise，接收其状态：<sup>注解 3.4</sup>
 	- 2.3.2.1 如果 `x` 处于未处理状态，则 promise 必须保持未处理状态，直到 `x` 被处理或被拒绝。
 
-	- 2.3.2.2 如果/当 `x` 处于已处理状态，用相同的值执行 promise。
+	- 2.3.2.2 如果/当 `x` 处于已处理状态时，用相同的值执行 promise。
 
 	- 2.3.2.2 如果/当 `x` 处于已拒绝状态时，以同样的理由拒绝 promise。
 
